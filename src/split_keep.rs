@@ -20,7 +20,7 @@ pub const WHITESPACE: [char; 11] = [
     '\u{200E}', // (left-to-right mark)
     '\u{200F}', // (right-to-left mark)
     '\u{2028}', // (line separator)
-    '\u{2029}' // (paragraph separator)
+    '\u{2029}', // (paragraph separator)
 ];
 
 // https://stackoverflow.com/a/56923739
@@ -32,7 +32,7 @@ pub fn split_at_whitespace<'a>(input: &'a str) -> Vec<(bool, &'a str)> {
             result.push((false, &input[last..index]));
         }
         result.push((true, matched));
-        last = index + 1;
+        last = index + matched.len();
     }
     if last < input.len() {
         result.push((false, &input[last..]));

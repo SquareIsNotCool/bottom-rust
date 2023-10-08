@@ -51,7 +51,11 @@ pub enum BottomDecodeError {
 
 #[derive(Clone, Copy, Debug, ValueEnum, PartialEq, Eq)]
 pub enum Mode {
+    /// Faster but won't decode partially encoded strings or strings with unsorted sections.
+    /// Use this if you care about speed or want to insure input is 100% up to code.
     Strict,
+
+    /// Allows for partially encoded strings and unsorted sections.
     Lenient
 }
 impl Display for Mode {

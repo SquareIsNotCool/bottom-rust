@@ -41,8 +41,8 @@ struct Args {
     skip_whitespace: bool,
 
     /// Trim the input string before encoding/decoding
-    #[arg(long, default_value_t = true)]
-    trim: bool
+    #[arg(long, default_value_t = false)]
+    no_trim: bool
 }
 
 fn main() -> Result<()> {
@@ -54,7 +54,7 @@ fn main() -> Result<()> {
         })
     });
 
-    if args.trim {
+    if !args.no_trim {
         message = message.trim().to_string();
     }
 

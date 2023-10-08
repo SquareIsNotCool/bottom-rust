@@ -1,6 +1,10 @@
 [package]
 name = "bottom-rust"
+description = "A blazingly fast implementation of the Bottom Encoding spec in the Rust programming language"
 version = "0.1.0"
+authors = ["SquareIsNotCool"]
+license = "MIT"
+repository = "https://github.com/SquareIsNotCool/bottom-rust"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -8,7 +12,6 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.75"
 clap = { version = "4.4.6", features = ["derive"] }
-phf = { version = "0.11", features = ["macros"] }
 rayon = "1.8.0"
 regex = { version = "1.9.6", features = ["pattern"] }
 thiserror = "1.0.49"
