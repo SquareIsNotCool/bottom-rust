@@ -47,7 +47,7 @@ fn main() {
                         _ => Err(())
                     }}
                 }}
-                pub const REGEX_STRING: &str = \"({})+{}\";
+                pub const REGEX_STRING: &str = \"(?:(?:(?:{NULL_CHARACTER})|{})+{})+\";
                 fn char_to_value(input: char) -> Result<u8, ()> {{
                     match input {{
                         {},
@@ -58,7 +58,7 @@ fn main() {
             lookup.len(),
             lookup.iter().map(|x| format!("\"{x}\"")).collect::<Vec<String>>().join(", "),
             lookup.iter().enumerate().map(|(i, x)| format!("\"{x}\" => Ok({i})")).collect::<Vec<String>>().join(",\n"),
-            VALUES.iter().map(|(_, character)| format!("({character})")).collect::<Vec<String>>().join("|"),
+            VALUES.iter().map(|(_, character)| format!("(?:{character})")).collect::<Vec<String>>().join("|"),
             BYTE_TERMINATOR,
             VALUES.iter().map(|(value, character)| format!("'{character}' => Ok({value})")).collect::<Vec<String>>().join(",\n")
         )
